@@ -53,7 +53,11 @@ public class EditToDo {
        ToDoList completed = em.find(ToDoList.class,id);
        try {
            System.out.println(completed.toString());
-           completed.setCompleted(true);
+           if(completed.isCompleted()) {
+               completed.setCompleted(!completed.isCompleted());
+           }else{
+               completed.setCompleted(true);
+           }
            System.out.println(completed.toString());
            em.getTransaction().commit();
        }catch ( NullPointerException e ){
