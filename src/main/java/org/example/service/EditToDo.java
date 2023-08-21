@@ -59,13 +59,11 @@ public class EditToDo {
        }catch ( NullPointerException e ){
            System.out.println("la todo list n'existe pas");
        }
-       em.close();
-       emf.close();
-
 
 
        em.getTransaction().commit();
        em.close();
+       emf.close();
    }
 
 }
