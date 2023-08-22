@@ -15,14 +15,19 @@ public class ToDoList {
 
     private boolean completed;
 
+    @OneToOne
+    @JoinColumn(name = "idTask")
+    private TaskInfo task;
+
+
     public ToDoList() {
     }
 
-    public ToDoList(String titre, boolean completed) {
+    public ToDoList(String titre, boolean completed, TaskInfo task) {
         this.titre = titre;
         this.completed = completed;
+        this.task = task;
     }
-
 
     public int getId() {
         return id;
@@ -48,12 +53,21 @@ public class ToDoList {
         this.completed = completed;
     }
 
+    public TaskInfo getTask() {
+        return task;
+    }
+
+    public void setTask(TaskInfo task) {
+        this.task = task;
+    }
+
     @Override
     public String toString() {
         return "ToDoList{" +
                 "id=" + id +
                 ", titre='" + titre + '\'' +
                 ", completed=" + completed +
+                ", task=" + task +
                 '}';
     }
 }

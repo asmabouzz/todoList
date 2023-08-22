@@ -1,13 +1,16 @@
 package org.example;
 
+import org.example.entity.TaskInfo;
 import org.example.entity.ToDoList;
-import org.example.service.EditToDo;
+import org.example.service.Controlleur;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class IHM {
 
     private static Scanner scanner = new Scanner(System.in);
+
 
 
     public static void start() {
@@ -49,8 +52,8 @@ public class IHM {
     private static void deleteListes() {
         System.out.print("list a supprimer  : ");
         int id = scanner.nextInt();
-        EditToDo.remove(id);
-        System.out.print(" Supprimer  : ");
+        Controlleur.remove(id);
+        System.out.println(" Supprimer  : ");
 
 
     }
@@ -60,23 +63,37 @@ public class IHM {
 
         System.out.print("list fini  : ");
         int id = scanner.nextInt();
-        EditToDo.completed(id);
+        Controlleur.completed(id);
 
 
     }
 
     private static void AfficheListes() {
-        EditToDo.lister();
+        Controlleur.lister();
     }
 
     private static void addToList() {
         System.out.println("creation de TODOlIST : ");
         System.out.print("titre  : ");
         String titre = scanner.nextLine();
+        System.out.print("description  : ");
+        String description = scanner.nextLine();
 
-        ToDoList list = new ToDoList(titre,false);
+        ToDoList list = new ToDoList();
 
-        EditToDo.add(list);
+        TaskInfo info = new TaskInfo(description,true, LocalDateTime.now());
+
+
+
+        list.setTitre(titre);
+        list.setCompleted(false);
+        list.setTask(info);
+
+        System.out.println(list.toString());
+        System.out.println(info.toString());
+
+        Controlleur.add(info);
+        Controlleur.add(list);
 
 
 

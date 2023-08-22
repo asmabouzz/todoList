@@ -1,30 +1,30 @@
 package org.example.service;
 
+import org.example.entity.TaskInfo;
 import org.example.entity.ToDoList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.List;
-import java.util.Scanner;
 
-public class EditToDo {
+public class Controlleur {
    public static EntityManagerFactory emf = Persistence.createEntityManagerFactory("to_do_postgres");
 
 
 
 
-   public static void add(ToDoList todo){
+   public static void add(Object element){
 
        EntityManager em = emf.createEntityManager();
        em.getTransaction().begin();
-       em.persist(todo);
+       em.persist(element);
        em.getTransaction().commit();
        em.close();
 
    }
 
-   public static void lister(){
+   public static   void lister(){
        EntityManager em = emf.createEntityManager();
 
        List<ToDoList> maList = null;
@@ -36,7 +36,8 @@ public class EditToDo {
 
    }
 
-   public  static void remove(int id){
+
+    public static void remove(int id){
        EntityManager em = emf.createEntityManager();
        em.getTransaction().begin();
 
@@ -47,7 +48,8 @@ public class EditToDo {
 
    }
 
-   public static void completed(int id){
+
+    public static void completed(int id){
        EntityManager em = emf.createEntityManager();
        em.getTransaction().begin();
        ToDoList completed = em.find(ToDoList.class,id);
