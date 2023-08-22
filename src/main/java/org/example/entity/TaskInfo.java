@@ -78,6 +78,7 @@ public class TaskInfo {
                 ", description='" + description + '\'' +
                 ", priorite='" + priorite + '\'' +
                 ", date=" + date +
+                ", todoList=" + toDoList.getId() +
                 '}';
     }
 }

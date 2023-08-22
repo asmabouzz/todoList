@@ -89,19 +89,22 @@ public class IHM {
         info.setDescription(description);
         info.setPriorite(true);
         info.setDate(LocalDateTime.now());
-
-        Controlleur.add(info);
-
-
+        info.setToDoList(list);
         list.setTitre(titre);
         list.setCompleted(false);
-        list.setTask(Controlleur.find(info.getIdTask()));
+        list.setTask(info);
 
 
         System.out.println(list.toString());
         System.out.println(info.toString());
 
+
         Controlleur.add(list);
+
+
+
+
+
 
 
 

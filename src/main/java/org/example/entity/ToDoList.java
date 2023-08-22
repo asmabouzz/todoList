@@ -15,8 +15,8 @@ public class ToDoList {
 
     private boolean completed;
 
-    @OneToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name = "idTask", referencedColumnName = "idTask")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idTask", referencedColumnName = "idtask")
     private TaskInfo task;
 
 

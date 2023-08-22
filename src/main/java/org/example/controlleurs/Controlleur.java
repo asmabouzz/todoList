@@ -14,11 +14,11 @@ public class Controlleur {
 
 
 
-   public static void add(Object element){
+   public static void add(ToDoList toDoList){
 
        EntityManager em = emf.createEntityManager();
        em.getTransaction().begin();
-       em.persist(element);
+       em.persist(toDoList);
        em.getTransaction().commit();
        em.close();
 
@@ -45,6 +45,7 @@ public class Controlleur {
        em.remove(toDoDelete);
        em.getTransaction().commit();
        em.close();
+       emf.close();
 
    }
 
@@ -65,22 +66,10 @@ public class Controlleur {
        }catch ( NullPointerException e ){
            System.out.println("la todo list n'existe pas");
        }
-
-
        em.getTransaction().commit();
        em.close();
        emf.close();
    }
-
-    public static TaskInfo find(int id){
-        EntityManager em = emf.createEntityManager();
-
-        TaskInfo tasklist = em.find(TaskInfo.class,id);
-
-        return tasklist;
-
-
-    }
 
 
 }
