@@ -45,7 +45,7 @@ public class Controlleur {
        em.remove(toDoDelete);
        em.getTransaction().commit();
        em.close();
-       emf.close();
+
 
    }
 
@@ -58,18 +58,15 @@ public class Controlleur {
            System.out.println(completed.toString());
            if(completed.isCompleted()) {
                completed.setCompleted(!completed.isCompleted());
-           }else{
-               completed.setCompleted(true);
            }
            System.out.println(completed.toString());
            em.getTransaction().commit();
        }catch ( NullPointerException e ){
            System.out.println("la todo list n'existe pas");
        }
-       em.getTransaction().commit();
+      // em.getTransaction().commit();
        em.close();
-       emf.close();
-   }
 
+   }
 
 }
