@@ -82,18 +82,25 @@ public class IHM {
 
         ToDoList list = new ToDoList();
 
-        TaskInfo info = new TaskInfo(description,true, LocalDateTime.now());
+        TaskInfo info = new TaskInfo();
 
+
+
+        info.setDescription(description);
+        info.setPriorite(true);
+        info.setDate(LocalDateTime.now());
+
+        Controlleur.add(info);
 
 
         list.setTitre(titre);
         list.setCompleted(false);
-        list.setTask(info);
+        list.setTask(Controlleur.find(info.getIdTask()));
+
 
         System.out.println(list.toString());
         System.out.println(info.toString());
 
-        Controlleur.add(info);
         Controlleur.add(list);
 
 

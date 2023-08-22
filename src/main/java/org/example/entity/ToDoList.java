@@ -15,19 +15,19 @@ public class ToDoList {
 
     private boolean completed;
 
-    @OneToOne(mappedBy = "taskinfo",fetch=FetchType.LAZY)
-    @JoinColumn(name = "idTask")
+    @OneToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name = "idTask", referencedColumnName = "idTask")
     private TaskInfo task;
 
 
     public ToDoList() {
     }
 
-    public ToDoList(String titre, boolean completed, TaskInfo task) {
-        this.titre = titre;
-        this.completed = completed;
-        this.task = task;
-    }
+//    public ToDoList(String titre, boolean completed, TaskInfo task) {
+//        this.titre = titre;
+//        this.completed = completed;
+//        this.task = task;
+//    }
 
     public int getId() {
         return id;

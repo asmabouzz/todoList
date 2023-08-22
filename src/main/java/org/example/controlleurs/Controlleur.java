@@ -1,5 +1,6 @@
 package org.example.controlleurs;
 
+import org.example.entity.TaskInfo;
 import org.example.entity.ToDoList;
 
 import javax.persistence.EntityManager;
@@ -70,5 +71,16 @@ public class Controlleur {
        em.close();
        emf.close();
    }
+
+    public static TaskInfo find(int id){
+        EntityManager em = emf.createEntityManager();
+
+        TaskInfo tasklist = em.find(TaskInfo.class,id);
+
+        return tasklist;
+
+
+    }
+
 
 }

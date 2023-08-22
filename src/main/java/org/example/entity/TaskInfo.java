@@ -17,16 +17,19 @@ public class TaskInfo {
 
     private LocalDateTime date;
 
+    @OneToOne(mappedBy = "task")
+    private  ToDoList toDoList;
 
 
     public TaskInfo() {
     }
 
-    public TaskInfo(String description, boolean priorite, LocalDateTime date) {
-        this.description = description;
-        this.priorite = priorite;
-        this.date = date;
-    }
+//    public TaskInfo(String description, boolean priorite, LocalDateTime date) {
+//        this.description = description;
+//        this.priorite = priorite;
+//        this.date = date;
+//
+//    }
 
     public int getIdTask() {
         return idTask;
@@ -44,7 +47,7 @@ public class TaskInfo {
         this.description = description;
     }
 
-    public boolean getPriorite() {
+    public boolean getPriorite(boolean b) {
         return priorite;
     }
 
@@ -60,6 +63,13 @@ public class TaskInfo {
         this.date = date;
     }
 
+    public ToDoList getToDoList() {
+        return toDoList;
+    }
+
+    public void setToDoList(ToDoList toDoList) {
+        this.toDoList = toDoList;
+    }
 
     @Override
     public String toString() {
