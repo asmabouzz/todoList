@@ -15,7 +15,7 @@ public class ToDoList {
 
     private boolean completed;
 
-    @OneToOne
+    @OneToOne(mappedBy = "taskinfo",fetch=FetchType.LAZY)
     @JoinColumn(name = "idTask")
     private TaskInfo task;
 

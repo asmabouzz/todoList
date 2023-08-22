@@ -2,7 +2,7 @@ package org.example;
 
 import org.example.entity.TaskInfo;
 import org.example.entity.ToDoList;
-import org.example.service.Controlleur;
+import org.example.controlleurs.Controlleur;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
@@ -78,6 +78,7 @@ public class IHM {
         String titre = scanner.nextLine();
         System.out.print("description  : ");
         String description = scanner.nextLine();
+
 
         ToDoList list = new ToDoList();
 

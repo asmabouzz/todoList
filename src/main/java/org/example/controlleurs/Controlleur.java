@@ -1,6 +1,5 @@
-package org.example.service;
+package org.example.controlleurs;
 
-import org.example.entity.TaskInfo;
 import org.example.entity.ToDoList;
 
 import javax.persistence.EntityManager;
